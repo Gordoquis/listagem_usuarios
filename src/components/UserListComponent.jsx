@@ -1,6 +1,6 @@
 import UserCardComponent from './UserCardComponent';
 
-function UserListComponent({ usuarios, busca, erro }) {
+function UserListComponent({ usuarios, busca, erro, onSelectUser }) {
   if (erro) {
     return <p className="message message--error">{erro}</p>;
   }
@@ -18,7 +18,11 @@ function UserListComponent({ usuarios, busca, erro }) {
   return (
     <section className="user-list" aria-label="Lista de usuários">
       {usuarios.map((usuario) => (
-        <UserCardComponent key={usuario.id} usuario={usuario} />
+        <UserCardComponent
+          key={usuario.id}
+          usuario={usuario}
+          onSelectUser={onSelectUser}
+        />
       ))}
     </section>
   );

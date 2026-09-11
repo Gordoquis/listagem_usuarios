@@ -9,6 +9,8 @@
   --shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
   --error-color: #dc2626;
   --success-color: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.12);
+  --error-bg: rgba(220, 38, 38, 0.12);
 }
 
 * {
@@ -25,6 +27,24 @@ body {
 button,
 input {
   font: inherit;
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: var(--primary-color);
+  color: white;
+  margin-bottom: 20px;
+}
+
+.button--primary:hover {
+  background: var(--primary-dark);
 }
 
 .app-container {
@@ -126,6 +146,127 @@ input {
   box-shadow: 0 22px 42px rgba(15, 23, 42, 0.1);
 }
 
+.user-card__button {
+  margin-top: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.user-card__button:hover {
+  background: var(--primary-dark);
+}
+
+.user-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  background: var(--panel-color);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  margin-bottom: 0;
+}
+
+.user-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-form__field label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.user-form__field input {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: #f8fafc;
+  padding: 12px 14px;
+  color: var(--text-color);
+}
+
+.user-form__button {
+  align-self: end;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-form__button:hover {
+  background: var(--primary-dark);
+}
+
+.modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal__content {
+  width: min(100%, 620px);
+  background: var(--panel-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.modal__header h2 {
+  margin: 0;
+}
+
+.modal__close {
+  border: none;
+  background: transparent;
+  color: var(--muted-color);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.user-details {
+  margin-top: 24px;
+  background: var(--panel-color);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+}
+
+.user-details h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.user-details p {
+  margin: 8px 0;
+  color: var(--text-color);
+}
+
 .user-card__avatar {
   width: 52px;
   height: 52px;
@@ -171,11 +312,19 @@ input {
   padding: 18px 20px;
   box-shadow: var(--shadow);
   font-size: 1rem;
+  margin-bottom: 18px;
 }
 
 .message--error {
   color: var(--error-color);
   border-color: rgba(220, 38, 38, 0.2);
+  background: var(--error-bg);
+}
+
+.message--success {
+  color: var(--success-color);
+  border-color: rgba(16, 185, 129, 0.2);
+  background: var(--success-bg);
 }
 
 .message--empty {

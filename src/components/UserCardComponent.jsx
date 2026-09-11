@@ -1,4 +1,4 @@
-function UserCardComponent({ usuario }) {
+function UserCardComponent({ usuario, onSelectUser }) {
   return (
     <article className="user-card">
       <div className="user-card__avatar" aria-hidden="true">
@@ -20,6 +20,14 @@ function UserCardComponent({ usuario }) {
         <p className="user-card__info">
           <strong>Empresa:</strong> {usuario.company?.name ?? 'N/A'}
         </p>
+
+        <button
+          type="button"
+          className="user-card__button"
+          onClick={() => onSelectUser?.(usuario.id)}
+        >
+          Ver detalhes
+        </button>
       </div>
     </article>
   );
